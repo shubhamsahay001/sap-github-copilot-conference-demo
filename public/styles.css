@@ -1,0 +1,444 @@
+:root {
+  --sap-brand-color: #0a6ed1;
+  --sap-brand-color-dark: #085caf;
+  --sap-background: #f5f6f7;
+  --sap-surface: #ffffff;
+  --sap-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --sap-border: #d9d9d9;
+  --sap-text: #32363a;
+  --sap-text-secondary: #6a6d70;
+  --sap-critical: #bb0000;
+  --sap-high: #e76500;
+  --sap-medium: #2b7d2b;
+  --sap-low: #0a6ed1;
+  --sap-radius: 12px;
+  --sap-grid-gap: 1.25rem;
+  font-family: '72', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--sap-background);
+  color: var(--sap-text);
+}
+
+.shell-header {
+  background: linear-gradient(90deg, #06234e, #0a6ed1);
+  box-shadow: var(--sap-shadow);
+}
+
+.shell-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  color: #fff;
+}
+
+.brand {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.brand-text h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem;
+}
+
+.brand-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-role {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 2rem;
+  display: grid;
+  gap: var(--sap-grid-gap);
+}
+
+.creation-card,
+.dashboard,
+.task-board {
+  background: var(--sap-surface);
+  border-radius: var(--sap-radius);
+  box-shadow: var(--sap-shadow);
+  padding: 2rem;
+}
+
+.card-header h2,
+.dash-header h2,
+.board-header h2 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.card-subtitle {
+  color: var(--sap-text-secondary);
+  font-size: 0.95rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field--full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: 600;
+  color: var(--sap-text-secondary);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.7rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--sap-border);
+  background: #fff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--sap-brand-color);
+  box-shadow: 0 0 0 3px rgba(10, 110, 209, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--sap-brand-color);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(10, 110, 209, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--sap-brand-color-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--sap-border);
+  color: var(--sap-text-secondary);
+}
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  border: 1px solid rgba(10, 110, 209, 0.3);
+  background: rgba(10, 110, 209, 0.07);
+  color: var(--sap-brand-color);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip.active {
+  background: var(--sap-brand-color);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(10, 110, 209, 0.25);
+}
+
+.metrics {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.metric {
+  background: linear-gradient(135deg, rgba(10, 110, 209, 0.08), rgba(6, 35, 78, 0.08));
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: var(--sap-text-secondary);
+}
+
+.metric-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.board-header p {
+  margin: 0.25rem 0 0;
+  color: var(--sap-text-secondary);
+}
+
+.search-box input {
+  min-width: 260px;
+}
+
+.task-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.task-card {
+  border-radius: 16px;
+  border: 1px solid rgba(10, 110, 209, 0.12);
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(6, 35, 78, 0.14);
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
+
+.task-card__header,
+.task-card__footer {
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.task-card__body {
+  padding: 0 1.25rem;
+  flex: 1;
+}
+
+.task-card__chip {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(10, 110, 209, 0.12);
+  color: var(--sap-brand-color);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-weight: 700;
+}
+
+.task-card__menu {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--sap-text-secondary);
+}
+
+.task-card__body h3 {
+  margin: 0 0 0.5rem;
+}
+
+.task-card__body p {
+  margin: 0;
+  color: var(--sap-text-secondary);
+  line-height: 1.5;
+}
+
+.task-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--sap-text-secondary);
+}
+
+.task-card select {
+  border-radius: 999px;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  background: rgba(10, 110, 209, 0.12);
+  border: none;
+  font-weight: 600;
+  color: var(--sap-brand-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  border: 2px dashed rgba(10, 110, 209, 0.2);
+  border-radius: 16px;
+  margin-top: 2rem;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+#toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #06234e;
+  color: #fff;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  transform: translateY(200%);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.priority-critical {
+  background: rgba(187, 0, 0, 0.18);
+  color: var(--sap-critical);
+}
+
+.priority-high {
+  background: rgba(231, 101, 0, 0.18);
+  color: var(--sap-high);
+}
+
+.priority-medium {
+  background: rgba(43, 125, 43, 0.18);
+  color: var(--sap-medium);
+}
+
+.priority-low {
+  background: rgba(10, 110, 209, 0.18);
+  color: var(--sap-low);
+}
+
+@media (max-width: 960px) {
+  .dash-header,
+  .board-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .shell-container {
+    padding: 1.25rem;
+  }
+
+  .main-content {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .shell-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .user-profile {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .task-card {
+    min-height: 220px;
+  }
+}

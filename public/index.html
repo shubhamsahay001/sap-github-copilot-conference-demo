@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAP Task Planner</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=72:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="shell-header">
+      <div class="shell-container">
+        <div class="brand">
+          <span class="brand-logo">SAP</span>
+          <div class="brand-text">
+            <h1>Task Planner</h1>
+            <p>Plan, Prioritize, and Deliver</p>
+          </div>
+        </div>
+        <div class="user-profile">
+          <div class="user-info">
+            <span class="user-name">Shubham Sahay</span>
+            <span class="user-role">Developer, Hyperspace BLR</span>
+          </div>
+          <div class="user-avatar">SS</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="creation-card">
+        <div class="card-header">
+          <h2>Create Task</h2>
+          <span class="card-subtitle">Capture actionable items for your project teams</span>
+        </div>
+        <form id="task-form" class="form-grid">
+          <div class="form-field">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="e.g. Finalize sprint backlog" required />
+          </div>
+          <div class="form-field">
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" placeholder="e.g. planning" />
+          </div>
+          <div class="form-field">
+            <label for="priority">Priority</label>
+            <select id="priority" name="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+              <option value="critical">Critical</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="dueDate">Due date</label>
+            <input type="date" id="dueDate" name="dueDate" />
+          </div>
+          <div class="form-field form-field--full">
+            <label for="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="3"
+              placeholder="Explain the background, acceptance criteria, and dependencies"
+            ></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="reset" class="btn btn-secondary">Reset</button>
+            <button type="submit" class="btn btn-primary">Add task</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="dashboard">
+        <div class="dash-header">
+          <h2>Portfolio Health</h2>
+          <div class="dash-actions">
+            <button class="chip" data-filter="all">All</button>
+            <button class="chip" data-filter="pending">Pending</button>
+            <button class="chip" data-filter="in_progress">In Progress</button>
+            <button class="chip" data-filter="completed">Completed</button>
+            <button class="chip" data-filter="archived">Archived</button>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-label">Total tasks</span>
+            <span class="metric-value" data-metric="total">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Open</span>
+            <span class="metric-value" data-metric="open">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">In progress</span>
+            <span class="metric-value" data-metric="in_progress">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Completed</span>
+            <span class="metric-value" data-metric="completed">0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="task-board">
+        <div class="board-header">
+          <div>
+            <h2>Task Board</h2>
+            <p>Sort, filter, and collaborate across workstreams</p>
+          </div>
+          <div class="search-box">
+            <input type="search" id="search" placeholder="Search tasks" />
+          </div>
+        </div>
+        <div id="tasks" class="task-grid" aria-live="polite"></div>
+        <div class="empty-state" hidden>
+          <span class="empty-icon">📋</span>
+          <h3>No tasks yet</h3>
+          <p>Create your first task to kick off the plan.</p>
+        </div>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <article class="task-card" data-task>
+        <header class="task-card__header">
+          <span class="task-card__chip" data-priority></span>
+          <button class="task-card__menu" data-action="remove" title="Delete task" aria-label="Delete task">
+            ✕
+          </button>
+        </header>
+        <div class="task-card__body">
+          <h3 data-title></h3>
+          <p data-description></p>
+        </div>
+        <footer class="task-card__footer">
+          <div class="task-meta">
+            <span data-category></span>
+            <span data-due></span>
+          </div>
+          <select data-status aria-label="Task status">
+            <option value="pending">Pending</option>
+            <option value="in_progress">In Progress</option>
+            <option value="completed">Completed</option>
+            <option value="archived">Archived</option>
+          </select>
+        </footer>
+      </article>
+    </template>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
